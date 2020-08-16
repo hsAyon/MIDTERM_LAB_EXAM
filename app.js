@@ -7,6 +7,7 @@ var app = express();
 var login = require('./controllers/login');
 var admin = require('./controllers/admin');
 var employee = require('./controllers/employee');
+var logout = require('./controllers/logout');
 
 
 app.set('view engine', 'ejs');
@@ -19,6 +20,7 @@ app.use('/assets',express.static('assets'));
 app.use('/login',login);
 app.use('/admin',admin);
 app.use('/employee',employee);
+app.use('/logout',logout);
 
 
 app.use(function (req, res, next) {
