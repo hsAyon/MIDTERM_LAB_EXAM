@@ -11,7 +11,6 @@ var employee = require('./controllers/employee');
 
 app.set('view engine', 'ejs');
 
-app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({secret: 'secret', saveUninitialized: false, resave: false}));
 

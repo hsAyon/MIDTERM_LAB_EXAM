@@ -5,8 +5,8 @@ const { check, validationResult } = require('express-validator');
 
 
 //root
-router.get('/', function(req, res){
+/* router.get('/', function(req, res){
     
 });
-
+ */
 module.exports = router;
