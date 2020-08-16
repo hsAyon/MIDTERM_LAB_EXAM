@@ -64,7 +64,7 @@ router.post('/addEmp', [
 router.get('/allemplist', function(req, res){
     var search = req.query.search;
     
-    console.log(search);
+    //console.log(search);
     admin.getEmpList(search, function (result){
         res.render('allEmpList',{employees: result});
     }) 
@@ -133,7 +133,6 @@ router.post('/update/:id',[
                 res.redirect('/admin/allemplist');
             });
         }
-    
     });    
 });
 

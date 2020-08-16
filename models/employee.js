@@ -22,4 +22,25 @@ module.exports = {
             callback(result);
         });
     },
+
+    getProdList: function(search, callback){
+        if(search && search != ''){
+            var sql="SELECT * FROM `products` WHERE `ID` LIKE '"+search+"' OR `name` LIKE '%"+search+"%';";
+            db.getResults(sql,function(result){
+                callback(result);
+            });
+        } else {
+            var sql="SELECT * FROM `products`";
+            db.getResults(sql,function(result){
+                callback(result);
+            });
+        }
+    },
+
+    getProd: function(ID, callback){
+        var sql="SELECT * FROM `products` WHERE `ID` LIKE '"+ID+"';";
+        db.getResults(sql,function(result){
+            callback(result[0]);
+        });
+    },
 }

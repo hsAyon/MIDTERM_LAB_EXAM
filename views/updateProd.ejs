@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1>Update Product <%=product.name%></h1>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+
+});
+</script>
+
+<body>
+    <div>
+        <form action="" method="post">
+            <table>
+                <tr>
+                    <td>
+                        <label for="name">Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="name" id="name" value="<%=form.name%>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="quantity">Quantity:</label>
+                    </td>
+                    <td>
+                        <input type="number" name="quantity" id="quantity" value="<%=form.quantity%>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="price">Price:</label>
+                    </td>
+                    <td>
+                        <input type="number" name="price" id="price" value="<%=form.price%>">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div style="color: white; background-color: red;">
+        <% if (valError.length > 0) { %> 
+            <div class="error" style="color: white; background-color: red; width: fit-content;">
+                <ul>
+                    <% valError.forEach(error => { %>
+                        <li>
+                            <%=error%>
+                        </li>
+                    <% }); %>
+                <lil>
+            </div>
+            <% } %> 
+    </div>
+</body>
+</html>
