@@ -28,18 +28,18 @@ module.exports = {
     },
 
     getEmp: function(uID, callback){
-        var sql="SELECT * FROM `employee_details`, `login` WHERE uID = '"+uID+"'";
+        var sql="SELECT * FROM `employee_details`, `login` WHERE `employee_details`.`uID` = `login`.`ID` AND uID = '"+uID+"'";
         db.getResults(sql,function(result){
             callback(result[0]);
         });
     },
 
-    updEmp: function(uID, username, password, name, phone, gender, designation, picture, callback){
-        var sql="UPDATE `employee_details` SET `name`='"+name+"',`phone`='"+phone+"',`gender`='"+gender+"', WHERE `uID`='"+uID+"';";
+    updEmp: function(uID, username, password, name, phone, gender, callback){
+        var sql="UPDATE `employee_details` SET `name`='"+name+"',`phone`='"+phone+"',`gender`='"+gender+"' WHERE `uID`='"+uID+"';";
         db.getResults(sql,function(result){
             var sql1="UPDATE `login` SET `username`='"+username+"',`phone`='"+password+"' WHERE `ID`='"+uID+"';";
             db.getResults(sql,function(result1){
-            callback(result1);
+                callback(result1);
             });
         });
     },
